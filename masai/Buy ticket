@@ -1,0 +1,26 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        Queue<Integer> queue = new LinkedList<>();
+        for (int t = 0 ; t < test ; t++){
+            char query = sc.next().charAt(0);
+
+            if (query == 'E'){
+                queue.add(sc.nextInt());
+                System.out.println(queue.size());
+            }
+            else if (query == 'D'){
+                if (queue.size() == 0){
+                    System.out.println("-1"+" "+queue.size());
+                }
+                else {
+                    System.out.println(queue.remove()+" "+queue.size());
+                }
+            }
+        }
+    }
+}
