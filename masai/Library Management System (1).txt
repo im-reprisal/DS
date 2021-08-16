@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.util.Stack;
+
+class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        Stack<Integer> s = new Stack<>();
+        for (int t = 0 ; t < test ; t++){
+            int query = sc.nextInt();
+            if (query == 1){
+               s.push(sc.nextInt());
+            }
+            if (query == 2){
+                if (!s.empty())
+                System.out.println(s.pop());
+                else
+                    System.out.println("No Books");
+            }
+            if (query == 3){
+                if (!s.empty())
+                System.out.println(s.peek());
+                else
+                    System.out.println("No Books");
+            }
+        }
+    }
+}

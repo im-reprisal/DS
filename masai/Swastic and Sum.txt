@@ -1,0 +1,40 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int row = sc.nextInt();
+        int col = sc.nextInt();
+        int[][] a = new int[row][col];
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0 ; i < row ; i++){
+            for (int j = 0 ; j < col ; j++){
+                a[i][j] = sc.nextInt();
+            }
+        }
+        for (int i = 0 ; i < row/2 ; i++){
+            sum1 += a[i][0];
+        }
+        for (int i = 0 ; i < col ; i++){
+            sum1 += a[row/2][i];
+        }
+        for (int i = row/2+1 ; i < row ; i++){
+            sum1 += a[i][col-1];
+        }
+
+        for (int i = col/2 ; i < col ; i++){
+            sum2 += a[0][i];
+        }
+        for (int i = 1 ; i < row-1 ; i++){
+            sum2 += a[i][col/2];
+        }
+        for (int i = 0 ; i < col/2+1 ; i++){
+            sum2 += a[row-1][i];
+        }
+        System.out.println(sum1);
+        System.out.println(sum2);
+        int diff = sum1 - sum2;
+        System.out.println(diff);
+    }
+}

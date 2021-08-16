@@ -1,0 +1,19 @@
+import java.util.Scanner;
+class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0 ; t < test ; t++) {
+            int number = sc.nextInt();
+            int temp = number ;
+            int sum = 0 ;
+            while(number >= 10){
+               int num = number / 10;
+                int rem = number % 10;
+                sum += num;
+                number = num+rem;
+            }
+            System.out.println(temp+sum);
+        }
+    }
+}
