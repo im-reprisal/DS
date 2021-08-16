@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.util.Stack;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        int f = 0;
+        int r = -1;
+        int[] a = new int[100];
+        Stack<Integer> stack = new Stack<>();
+        for (int t = 0 ; t < test ; t++){
+            int query = sc.nextInt();
+          // adding into queue
+            if (query == 1) {
+                r++;
+                a[r] = sc.nextInt();
+            }
+          // adding into stack
+             if (query == 2) {
+                stack.push(sc.nextInt());
+            }
+          // removing from queue
+             if (query == 3) {
+                if (r == -1) {
+                    System.out.println(-1);
+                }
+                else {
+                    System.out.println(a[f]);
+                }
+            }
+          // removing from stack
+             if (query == 4) {
+                if (stack.isEmpty()) {
+                    System.out.println(-1);
+                }
+                else {
+                    System.out.println(stack.peek());
+                }
+            }
+          // removing from queue and adding removed element into stack
+             if (query == 5) {
+                stack.push(a[f]);
+                f++;
+            }
+        }
+    }
+}
