@@ -1,0 +1,35 @@
+import java.util.Scanner;
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0; t < test; t++) {
+            int size = sc.nextInt();
+            int[] a_1 = new int[size];
+            int[] a_2 = new int[size];
+            for (int i = 0 ; i < size ; i++){
+                a_1[i] = sc.nextInt();
+            }
+            for (int i = 0 ; i < size ; i++){
+                a_2[i] = sc.nextInt();
+            }
+            int l = 0;
+            int r = size - 1;
+            int c = 0;
+            while (l < size && r >= 0) {
+                if (a_1[l] == a_2[r]) {
+                    l++;
+                    c++;
+                    r--;
+                }
+                else if (a_2[r] < a_1[l]){
+                    r--;
+                }
+                else{
+                    l++;
+                }
+            }
+            System.out.println(c);
+        }
+    }
+}
