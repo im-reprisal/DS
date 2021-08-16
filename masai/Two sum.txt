@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int test = scanner.nextInt();
+        for (int t = 0 ; t < test ; t++) {
+            int n = scanner.nextInt();
+            int sum = scanner.nextInt();
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++) {
+                a[i] = scanner.nextInt();
+            }
+            String str = "";
+            for (int i = 0; i < a.length - 1; i++) {
+                for (int j = i + 1; j < a.length; j++) {
+                    if (a[i] + a[j] == sum)
+                        str = str + i + " " + j+" ";
+                  }
+              if(str!=""){
+               break;
+               }
+            }
+            if (str == "") {
+                str = str + "-1" + " " + "-1";
+            }
+            System.out.println(str);
+        }
+    }
+}

@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0 ; t < test ; t++){
+            int size = sc.nextInt();
+            int[][] a = new int[size][size];
+            for (int i = 0 ; i < size ; i++){
+                for (int j = 0 ; j < size ; j++){
+                    a[i][j] = sc.nextInt();
+                }
+            }
+            String str = "";
+            int right = size - 1;
+            for(int i = size/2; i >= 0 ; i--){
+                str += a[i][right]+" ";
+                right--;
+            }
+            int up = size/2-1;
+            for(int i = 1 ; i <= size/2 ; i++){
+                str += a[i][up]+" ";
+                up--;
+            }
+
+            int left = 1;
+            for(int i = size/2+1 ; i < size ; i++){
+                str += a[i][left]+" ";
+                left++;
+            }
+
+            int down = size/2+1;
+            for(int i = size-2 ; i > size/2 ; i--){
+                str += a[i][down]+" ";
+                down++;
+            }
+            System.out.println(str);
+        }
+    }
+}

@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] A) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        String str = sc.next();
+        String maxStr ="";
+        for (int i = 0 ; i < str.length() ; i++){
+            if (maxStr.compareTo(str.substring(i)) <= 0){
+                maxStr = str.substring(i);
+            }
+        }
+        System.out.println(maxStr);
+    }
+}

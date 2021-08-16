@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0 ; t < test ; t++) {
+            int number = sc.nextInt();
+            int sum = 0;
+            while (number > 9) {
+                while (number > 0) {
+                    sum += (number % 10) * (number % 10);
+                    number = number / 10;
+                }
+                number = sum;
+                sum = 0 ;
+            }
+            if (number == 1){
+                System.out.println("true");
+            }
+            else {
+                System.out.println("false");
+            }
+        }
+    }
+}

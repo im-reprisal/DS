@@ -1,0 +1,15 @@
+import java.util.Scanner;
+public class Main {
+    public static int findFactorial(int number){
+       if (number == 0 || number == 1)
+           return 1;
+       else
+           return number*findFactorial(number-1);
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int result = findFactorial(n);
+        System.out.println(result);
+    }
+}

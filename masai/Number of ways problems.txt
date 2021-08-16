@@ -1,0 +1,16 @@
+import java.util.Scanner;
+class Main {
+    public static int totalStep(int n) {
+        if(n < 0)
+        return 0 ;
+        if (n == 0)
+            return 1;
+        else
+            return totalStep(n - 3) + totalStep(n - 2) + totalStep(n - 1);
+    }
+    public static void main(String argc[]) {
+        Scanner sc = new Scanner(System.in);
+        int stairs = sc.nextInt();
+        System.out.println(totalStep(stairs));
+    }
+}

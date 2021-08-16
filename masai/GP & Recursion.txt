@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+class Main{
+    static double sum(int n , int r){
+        if (n == 0){
+          return 1;
+        }
+        double output = 1 / (double)Math.pow(r,n) + sum(n - 1,r);
+        return output;
+    }
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int r = sc.nextInt();
+        System.out.println(String.format("%.4f", sum(n,r)));
+    }
+}

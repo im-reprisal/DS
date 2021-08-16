@@ -1,0 +1,19 @@
+import java.util.Scanner;
+class Main {
+    public static int way(int n) {
+        if(n % 4 != 0)
+            return 0 ;
+        if (n <= 4)
+            return 1;
+        else
+            return way(n - 4) + way(n - 8);
+    }
+    public static void main(String argc[]) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0 ; t < test ; t++) {
+            int N = sc.nextInt();
+            System.out.println(way(N));
+        }
+    }
+}

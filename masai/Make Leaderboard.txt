@@ -1,0 +1,54 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        String[] name = new String[n];
+        int[] marks = new int[n];
+        for (int i = 0; i < n; i++) {
+            name[i] = scanner.next();
+            marks[i] = scanner.nextInt();
+        }
+        int temp_1;
+        String temp_2;
+        for (int i = 0; i < n ; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (name[i].compareTo(name[j]) > 0) {
+                    temp_2 = name[i];
+                    temp_1= marks[i];
+                    name[i] = name[j];
+                    marks[i] = marks[j];
+                    name[j] = temp_2;
+                    marks[j] = temp_1;
+                }
+            }
+        }
+        String str;
+        for (int i = 0; i < n - 1 ; i++) {
+            for (int j = 0; j < n -1 - i ; j++) {
+                if ((marks[j]) < (marks[j + 1])) {
+                    temp_1 = marks[j];
+                    str = name[j];
+                    marks[j] = marks[j + 1];
+                    name[j] = name[j + 1];
+                    marks[j + 1] = temp_1;
+                    name[j + 1] = str;
+                }
+            }
+        }
+        int count = 0;
+        int rank = 1;
+        int previous = -1;
+        for (int i = 0; i < n; i++) {
+            if (marks[i] == previous) {
+                System.out.println(rank + " " + name[i]);
+            } else {
+                rank += count;
+                count = 0;
+                System.out.println(rank + " " + name[i]);
+            }
+            count++;
+            previous = marks[i];
+        }
+    }
+}

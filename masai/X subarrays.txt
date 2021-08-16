@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Main {
+     static boolean check(int a[], int L, int R, int K) {
+        for (int j = L ; j <= R ; j++) {
+            if (a[j] > K ) {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0 ; t < test ; t++){
+            int size = sc.nextInt();
+            int K = sc.nextInt();
+            int X = sc.nextInt();
+            int[] a = new int[size];
+            int count = 0;
+            int L = 0;
+            int R = X - 1;
+            for (int i = 0 ; i < size ; i++) {
+                a[i] = sc.nextInt();
+            }
+            while (L < a.length && R < a.length) {
+                if (check(a,L,R,K))
+                    count++;
+                    L++;
+                    R++;
+            }
+            System.out.println(count);
+        }
+    }
+}

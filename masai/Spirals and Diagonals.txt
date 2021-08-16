@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        for (int t = 0; t < test; t++) {
+            int n = sc.nextInt();
+            int[] a = new int[n*n];
+            for (int i = 0 ; i < n*n ; i++){
+                a[i] = sc.nextInt();
+            }
+            int[][] ar = new int[n][n];
+            int up = 0;
+            int down = n - 1;
+            int left = 0;
+            int right = n - 1;
+            int count = 0;
+            while(count < a.length){
+                for(int i = left ; i <= right ; i++){
+                    ar[up][i] = a[count];
+                    count++;
+                }
+                up++;
+                for(int i = up ; i <= down ; i++){
+                    ar[i][right] = a[count];
+                    count++;
+                }
+                right--;
+                for(int i = right ; i >= left ; i--){
+                    ar[down][i] = a[count];
+                    count++;
+                }
+                down--;
+
+                for(int i = down ; i >= up ; i--){
+                    ar[i][left] = a[count];
+                    count++;
+                }
+                left++;
+            }
+            int sum = 0;
+            if(n % 2 == 0){
+                for(int i = 0 ; i < n ; i++){
+                    sum = sum + ar[i][i];
+                }
+                for(int i = 0 ; i < n ; i++){
+                    sum = sum + ar[i][n-1-i];
+                }
+                System.out.println(sum);
+            }
+            else{
+                for(int i = 0 ; i < n ; i++){
+                    sum = sum + ar[i][i];
+                }
+                for(int i = 0 ; i < n ; i++){
+                    sum = sum + ar[i][n-1-i];
+                }
+                sum = sum - ar[n/2][n/2];
+                System.out.println(sum);
+            }
+
+        }
+    }
+}

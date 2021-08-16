@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.Stack;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int test = sc.nextInt();
+        Stack<Integer> s = new Stack<>();
+        for (int t = 0 ; t < test ; t++){
+            int query = sc.nextInt();
+            if (query == 2){
+                s.push(sc.nextInt());
+            }
+            if (query == 1){
+                if (!s.empty()){
+                    System.out.println(s.pop());
+                }
+                else {
+                    System.out.println("No Food");
+                }
+            }
+        }
+    }
+}

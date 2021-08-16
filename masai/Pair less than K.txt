@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int te = sc.nextInt();
+        for (int t= 0 ; t < te ; t++){
+            int size = sc.nextInt();
+            int[] arr = new int[size];
+            for (int i = 0; i < size ; i++) {
+                arr[i] = sc.nextInt();
+            }
+            int k = sc.nextInt();
+            int left = 0;
+            int right = left+1;
+            int sum;
+            int total = 0;
+            int count = 0;
+            while (left < arr.length - 1 && right < arr.length) 
+            {
+                sum = arr[left] + arr[right];
+                if (sum < k)
+                {
+                    if (total < sum) {
+                        total = sum;
+                        
+                        count++;
+                        right++;
+                    }
+                    else 
+                    {
+                        right++;
+                        sum = 0;
+                    }
+                } else {
+                    right++;
+                    
+                }
+                if (right == size - 1) {
+                    left++;
+                    right = left +1;
+                }
+            }
+            if
+            (count > 0) {
+                System.out.println(total);
+            }else
+            {
+                System.out.println(-1);
+            }
+        }
+    }
+}
