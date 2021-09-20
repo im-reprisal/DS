@@ -1,0 +1,15 @@
+class Solution{
+  public static boolean detectPalindrome(Node a){
+    //complete this function.
+        LinkedList<Integer> list = new LinkedList<Integer>();
+        while(a!=null){
+            list.add(a.data);
+            a = a.next;
+        }
+        while(list.size() > 1){
+            if(list.removeFirst() != list.removeLast())
+            return false;
+        }
+        return true;
+  }
+}

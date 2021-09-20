@@ -1,0 +1,12 @@
+class Solution{
+  public int middleNode(Node head){
+    //write your code here.
+         Node last = head;
+         Node first = head;
+         while (first != null && first.next != null) {
+             last = last.next;
+             first = first.next.next;
+         }
+        return last.data;
+  }
+}

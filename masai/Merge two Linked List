@@ -1,0 +1,17 @@
+class Solution{
+  public Node mergeTwoLinkedList(Node a,Node b){
+    //write your code here.
+    if(a == null)
+      return b;
+        if(b == null)
+          return a;
+        if(a.data < b.data){
+            a.next = mergeTwoLinkedList(a.next, b);
+            return a;
+        }
+        else {
+            b.next = mergeTwoLinkedList(a, b.next);
+            return b;
+        }
+  }
+}

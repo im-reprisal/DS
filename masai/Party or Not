@@ -1,0 +1,30 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Main {
+    static public void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        int friend = sc.nextInt();
+        int target = sc.nextInt();
+        int[] a = new int[size];
+        for (int i = 0 ; i < size ; i++){
+            a[i] = sc.nextInt();
+        }
+        int sum = 0 ;
+        int check =-1 ;
+        Arrays.sort(a);
+        for (int i = 0 ; i < size ; i++){
+            sum = sum + a[i];
+            if (sum <= target){
+                check = i ;
+            }
+        }
+      if(check+1 == friend){
+        System.out.println("Party");
+      }
+      else{
+         System.out.println("Sad");
+      }
+    }
+}

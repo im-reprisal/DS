@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+class Main {
+    static int search(int a[],int key,int low,int high) {
+
+        int mid = (low + high) / 2;
+
+        if (low > high) {
+            return -1;
+        }
+        if (a[mid] == key) {
+            return mid;
+        }
+        // if left half is sorted.
+        if (a[low] <= a[mid]) {
+
+            if (a[low] <= key && a[mid] >= key) {
+                return search(a, key, low, mid - 1);
+            } else {
+                return search(a, key, mid + 1, high);
+            }
+        }
+        // if right half is sorted.
+        else {
+
+            if (a[mid] <= key && a[high] >= key) {
+                return search(a, key, mid + 1, high);
+            } else {
+                return search(a, key, low, mid - 1);
+            }
+        }
+
+    }
+    public static void main(String[] args) {
+        Scanner scanner=new Scanner(System.in);
+        int size = scanner.nextInt();
+        int k = scanner.nextInt();
+        int[] a = new int[size];
+
+        for (int i = 0; i < size ; i++) {
+            a[i] = scanner.nextInt();
+        }
+
+        System.out.println(search(a,k,0,size-1));
+    }
+}

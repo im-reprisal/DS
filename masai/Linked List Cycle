@@ -1,0 +1,19 @@
+class Solution{
+  public static boolean checkForCycle(Node head){
+    //write your code here.
+    if (head == null) {
+         return false;
+      }
+      Node first = head;
+      Node last = head;
+      while (first != null && first.next != null) {
+         first = first.next.next;
+         last = last.next;
+
+         if (first == last) {
+            return true;
+         }
+      }
+      return false;
+  }
+}

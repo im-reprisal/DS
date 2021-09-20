@@ -1,0 +1,18 @@
+class Solution{
+  public static Node reverseLinkedList(Node a){
+    //write your code here.
+    if (a == null) {
+        return null;
+    }
+    Node prev = null;
+    Node next = null;
+    while(a.next != null){
+        next = a.next;
+        a.next = prev;
+        prev = a;
+        a = next;
+    }
+    a.next = prev;
+    return a;
+  }
+}
